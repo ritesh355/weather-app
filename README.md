@@ -82,8 +82,8 @@ Access the app at: [http://localhost](http://localhost)
 
 ## 📸 Screenshot
 
-[Live ](./assets/live.png)
-[result](./assets/result.png)
+(./assets/live.png)
+(./assets/result.png)
 
 ## 🧹 Cleanup
 
