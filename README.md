@@ -82,7 +82,7 @@ Access the app at: [http://localhost](http://localhost)
 
 ## 📸 Screenshot
 
-(./assets/live.png)
+[]()https://github.com/ritesh355/weather-app/blob/main/assets/live.png
 (./assets/result.png)
 
 ## 🧹 Cleanup
