@@ -82,9 +82,9 @@ Access the app at: [http://localhost](http://localhost)
 
 ## 📸 Screenshot
 
-![Live Screenshot](assets/live.pnj)
+![Live Screenshot](./assets/live.pnj)
 
-![reault Screenshot](assets/result.pnj)
+![reault Screenshot](./assets/result.pnj)
 
 ## 🧹 Cleanup
 
