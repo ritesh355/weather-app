@@ -80,12 +80,14 @@ Access the app at: [http://localhost](http://localhost)
 | Docker Compose  | Multi-container setup       |
 | HTML/CSS        | Frontend UI                 |
 
-## 📸 Screenshot
+---
+## 📸 Live Preview
 
-![Live Screenshot](/assets/live.pnj)
+![Live Screenshot](./assets/live.png)
 
-![reault Screenshot](./assets/result.pnj)
+![Result Screenshot](./assets/result.png)
 
+ ---
 ## 🧹 Cleanup
 
 To stop and remove containers:
