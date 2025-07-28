@@ -1,33 +1,29 @@
-from flask import Flask, render_template, request
-import requests
+from flask import Flask, request, jsonify
 import os
+import requests
+
+API_KEY = os.getenv("WEATHER_API_KEY")
 
 app = Flask(__name__)
-API_KEY = os.environ.get('WEATHER_API_KEY')
 
 @app.route('/')
-def home():
-    return render_template('index.html')
+def index():
+    return "🌤️ Weather App API is running. Use /weather?city=YourCity"
 
-@app.route('/weather', methods=['POST'])
-def weather():
-    city = request.form['city']
-    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
+@app.route('/weather')
+def get_weather():
+    city = request.args.get('city')
+    if not city:
+        return jsonify({"error": "City parameter is required"}), 400
+
+    url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}"
     response = requests.get(url)
-    data = response.json()
 
-    if data.get("cod") != 200:
-        return render_template('index.html', error="City not found.")
-    
-    weather_data = {
-        "city": city,
-        "temperature": data["main"]["temp"],
-        "description": data["weather"][0]["description"],
-        "icon": data["weather"][0]["icon"]
-    }
+    if response.status_code != 200:
+        return jsonify({"error": "Failed to get weather data"}), response.status_code
 
-    return render_template('index.html', weather=weather_data)
+    return jsonify(response.json())
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(host='0.0.0.0', port=5000)
 
